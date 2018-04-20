@@ -1,0 +1,32 @@
+{
+  "name": "sport-api",
+  "version": "1.0.0",
+  "description": "api nodejs example",
+  "main": "app/index.js",
+  "repository": "git@github.com:dancespiele/sport-api.git",
+  "author": "Francisco Jesus Navarro Cortes",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.22.0",
+    "mongoose": "^5.0.13",
+    "nodemon": "^1.17.3",
+    "sequelize": "^4.37.6",
+    "sqlite3": "^4.0.0",
+    "swagger-ui-express": "^3.0.6"
+  },
+  "scripts": {
+    "test": "node_modules/lab/bin/lab -v -l test/sport.test.js",
+    "watch": "sh run.sh"
+  },
+  "devDependencies": {
+    "code": "^5.2.0",
+    "lab": "^15.4.1",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  }
+}

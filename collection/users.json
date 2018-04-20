@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5ac94cc50a4545a5768ad10f"},"full_name":"Lidia Garcia","username":"admin","password":"$2a$04$/N5Rzz8Kr3n9eOGVZSc3aOQqszDjMmggYz3cnIfBU//P0k9hprY32","permissions":["user","admin"]}
+{"_id":{"$oid":"5aca402147ba53277a8bd75e"},"full_name":"Paco de Lucia","username":"paco","password":"$2a$04$/N5Rzz8Kr3n9eOGVZSc3aOQqszDjMmggYz3cnIfBU//P0k9hprY32","permissions":["user"]}

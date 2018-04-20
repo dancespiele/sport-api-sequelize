@@ -1,0 +1,186 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: Sport API
+
+host: localhost:8000
+
+basePath: /
+
+schemes:
+  - http
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+components:
+  schemas:
+    activity:
+      properties:
+        start_coordinates:
+          type: object
+          properties:
+            lat:
+              type: number
+              example: 12.399
+            long:
+              type: number
+              example: 19.339
+        end_coordinates:
+          type: object
+          properties:
+            lat:
+              type: number
+              example: 40.503
+            long:
+              type: number
+              example: 30.45
+        _id:
+          type: number
+          example: 2acbc81b5aac83356f5a27db
+        activity_type:
+          type: string
+          example: "cycling"
+        start_time:
+          type: date
+          example: 2018-04-11T01:38:35.523Z
+        end_time:
+          type: date
+          example: 2018-04-11T01:38:35.523Z
+        calories:
+          type: number
+          example: 100
+        user_id:
+          type: string
+          example: 1ac24nc50ag545a5768ad13f'
+
+paths:
+  /users:
+    post:
+      description: Return Token account
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                example: user
+              password:
+                type: string
+                example: testpwd
+      responses:
+        "200":
+          description: Get token and user
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: "eyJ0eXAiOiJKd1QiLSJhbGciO..."
+              payload:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: "3449318283889ffe"
+                      permissions:
+                        type: array
+                        items: 
+                          type: string
+                        example: [user, admin]
+                  iat:
+                    type: number
+                    example: 1723236448
+                  exp:
+                    type: number
+                    example: 1723236673
+        "401":
+            description: Login error
+        "500":
+            description: Error server  
+  /activities:          
+    get:
+      description: get activities
+      parameters:
+        - name: activityId
+          type: number
+          example: 2acbc81b5aac83356f5a27db
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              "$ref": "#/components/schemas/activity"
+        "500":
+          description: Error server
+    post:
+      description: add activity
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            "$ref": "#/components/schemas/activity"
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              "$ref": "#/components/schemas/activity"
+        "500":
+          description: Error server
+    put:
+      description: update activity
+      parameters:
+        - name: activityId
+          type: number
+          example: 2acbc81b5aac83356f5a27db
+        - name: body
+          in: body
+          required: true
+          schema:
+            "$ref": "#/components/schemas/activity"
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: object
+            properties:
+              n:
+                type: number
+                example: 1
+              nModified:
+                type: number
+                example: 1
+              ok:
+                type: number
+                example: 1 
+        "500":
+          description: Error server
+    delete:
+      description: update activity
+      parameters:
+        - name: activityId
+          type: number
+          example: 2acbc81b5aac83356f5a27db
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: number
+            example: 2acbc81b5aac83356f5a27db
+        "403":
+          description: Not allowed
+        "500":
+          description: Error server
